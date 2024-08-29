@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     require 'database.php'; // Include the database.php file
     $stmt = $conn->prepare("SELECT * FROM tasks");
     $stmt->execute();
@@ -19,11 +21,23 @@
 </head>
 
 <body>
+   
     <section class="vh-100" style="background-color: #eee;">
+   
         <div class="container py-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
+            <?php
+                //show message
+                if(isset($_SESSION['message'])): ?>
+                    <div class="alert alert-<?php echo $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
+                        <?php echo $_SESSION['message'] ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <?php session_unset(); endif;
+                ?>
                 <div class="col col-lg-9 col-xl-7">
                     <div class="card rounded-3">
+                        
                         <div class="card-body p-4">
 
                             <h4 class="text-center my-3 pb-3">To Do App</h4>
@@ -42,10 +56,10 @@
                             <table class="table mb-4">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No.</th>
-                                        <th scope="col">Todo item</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Te doen</th>
                                         <th scope="col">Status</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">Acties</th>
                                     </tr>
                                 </thead>
                                 <tbody>
