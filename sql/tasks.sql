@@ -17,4 +17,4 @@ CREATE TABLE `tasks` (
 INSERT INTO `tasks` (`id`, `title`, `category`, `status`) VALUES
 (1, 'Boodschappen doen deze week', NULL, 'in behandeling'),
 (2, 'Autoverzekering vernieuwen', NULL, 'in behandeling'),
-(3, 'Online code cursus kopen', 'studeren', 'in behandeling');
+(3, 'Online code cursus kopen', NULL, 'in behandeling');
